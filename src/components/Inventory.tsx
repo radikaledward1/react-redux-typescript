@@ -6,7 +6,9 @@ import {
     TableHeaderCell,
     TableRow,
     Card,
-    Button
+    Button,
+    Badge,
+    Title
   } from '@tremor/react';
   import { 
     RiEditBoxLine,
@@ -41,7 +43,9 @@ import {
 
     return (
         <Card>
-
+            <Title>Inventory
+            <Badge>{products.length}</Badge>
+            </Title>
             <Table>
                 <TableHead>
                     <TableRow>
