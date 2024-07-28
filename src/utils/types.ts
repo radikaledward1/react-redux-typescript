@@ -1,3 +1,5 @@
+export type ProductId = string
+
 export interface Product {
     sku: string,
     name: string,
@@ -7,5 +9,5 @@ export interface Product {
 }
 
 export interface ProductWithId extends Product {
-    id: string
+    id: ProductId
 }

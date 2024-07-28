@@ -1,4 +1,4 @@
-import { Inventory } from './components/Inventory'
+import Inventory from './components/Inventory'
 
 import './App.css'
 

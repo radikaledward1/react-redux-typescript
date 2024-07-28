@@ -14,32 +14,13 @@ import {
     RiEditBoxLine,
     RiDeleteBinLine
    } from '@remixicon/react';
-  
-  export function Inventory () {
+   import { useAppSelector } from '../hooks/state';
+   import { useInventoryActions } from '../hooks/actions/useInventoryActions';
+    
+   export default function Inventory() {
 
-    const products = [
-        {
-            sku: '1234',
-            name: 'Product 1',
-            category: 'Category 1',
-            description: 'Description 1',
-            stock: 10,
-        },
-        {
-            sku: '5678',
-            name: 'Product 2',
-            category: 'Category 2',
-            description: 'Description 2',
-            stock: 20,
-        },
-        {
-            sku: '91011',
-            name: 'Product 3',
-            category: 'Category 3',
-            description: 'Description 3',
-            stock: 30,
-        },
-    ]
+    const products = useAppSelector((state) => state.inventory);
+    const { handlerDeleteProductById } = useInventoryActions();
 
     return (
         <Card>
@@ -61,6 +42,7 @@ import {
                     {
                         products.map((product, index) => (
                                 <TableRow key={index}>
+                                    <TableCell>{product.id}</TableCell>
                                     <TableCell>{product.sku}</TableCell>
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell>{product.category}</TableCell>
@@ -68,7 +50,7 @@ import {
                                     <TableCell>{product.stock}</TableCell>
                                     <TableCell>
                                         <Button icon={RiEditBoxLine} variant='light'/>
-                                        <Button icon={RiDeleteBinLine} variant='light'/>
+                                        <Button icon={RiDeleteBinLine} onClick={() => {handlerDeleteProductById(product.id)}} variant='light'/>
                                     </TableCell>
                                 </TableRow>
                             )

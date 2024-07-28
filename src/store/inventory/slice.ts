@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ProductWithId } from "../../utils/types";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { ProductWithId, ProductId } from "../../utils/types";
 
 const Products: ProductWithId[] = [
     {
@@ -47,7 +47,13 @@ const Products: ProductWithId[] = [
 export const inventorySlice = createSlice({
     name: "inventory",
     initialState: Products,
-    reducers: {}
+    reducers: {
+        deleteProductById: (state, action: PayloadAction<ProductId>) => {
+            const id = action.payload;
+            return state.filter((product) => product.id !== id);
+        }
+    }
 })
 
 export default inventorySlice.reducer;
+export const { deleteProductById } = inventorySlice.actions;
