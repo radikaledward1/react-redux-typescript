@@ -14,6 +14,7 @@ import {
     RiEditBoxLine,
     RiDeleteBinLine
    } from '@remixicon/react';
+   import { Link } from 'react-router-dom';
    import { useAppSelector } from '../hooks/state';
    import { useInventoryActions } from '../hooks/actions/useInventoryActions';
     
@@ -24,17 +25,25 @@ import {
 
     return (
         <Card>
-            <Title>Inventory
-            <Badge>{products.length}</Badge>
-            </Title>
+            
+            <div className='flex justify-between'>
+                <Title>Inventory
+                    <Badge className='ml-1'>{products.length}</Badge>
+                </Title>
+                <Button variant='light'>
+                    <Link to='/add'>Add Product</Link>
+                </Button>
+            </div>
             <Table>
                 <TableHead>
                     <TableRow>
+                    <TableHeaderCell>Id</TableHeaderCell>
                     <TableHeaderCell>SKU</TableHeaderCell>
                     <TableHeaderCell>Product</TableHeaderCell>
                     <TableHeaderCell>Category</TableHeaderCell>
                     <TableHeaderCell>Description</TableHeaderCell>
                     <TableHeaderCell>Current Stock</TableHeaderCell>
+                    <TableHeaderCell>Actions</TableHeaderCell>
                     </TableRow>
                 </TableHead>
 
