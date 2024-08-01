@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../state";
-import { ProductId } from "../../utils/types";
-import { deleteProductById } from "../../store/inventory/slice";
+import { ProductId, Product } from "../../utils/types";
+import { deleteProductById, AddProduct } from "../../store/inventory/slice";
 
 export const useInventoryActions = () => {
     const dispatch = useAppDispatch();
@@ -9,8 +9,13 @@ export const useInventoryActions = () => {
         dispatch(deleteProductById(id));
     }
 
+    const handlerAddProduct = (product: Product) => {
+        dispatch(AddProduct(product));
+    }
+
     return {
-        handlerDeleteProductById
+        handlerDeleteProductById,
+        handlerAddProduct
     }
 
 }
