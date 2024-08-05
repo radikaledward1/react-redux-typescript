@@ -14,6 +14,7 @@ import {
     RiEditBoxLine,
     RiDeleteBinLine
    } from '@remixicon/react';
+   import { Toaster } from 'sonner';
    import { Link } from 'react-router-dom';
    import { useAppSelector } from '../hooks/state';
    import { useInventoryActions } from '../hooks/actions/useInventoryActions';
@@ -68,6 +69,7 @@ import {
                 </TableBody>
             </Table>
 
+            <Toaster richColors />
         </Card>
     )
   }

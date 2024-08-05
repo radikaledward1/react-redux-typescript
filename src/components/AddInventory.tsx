@@ -16,6 +16,7 @@ export default function AddInventory() {
 
     const handleSubmitNewProduct = (e: React.FormEvent<HTMLFormElement>) => {
 
+        // Prevent the default form submission or page refresh
         e.preventDefault()
 
         const form = e.target as HTMLFormElement
